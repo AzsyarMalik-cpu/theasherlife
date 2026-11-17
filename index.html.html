@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1d4ed8">
+<title>For Asher, from Malik</title>
+<style>
+:root{
+  --bg:#f5f8ff;
+  --card:#ffffff;
+  --blue:#2563eb;
+  --blue-dark:#1e3a8a;
+  --blue-soft:#dbeafe;
+  --text:#1e293b;
+  --muted:#64748b;
+  --line:#dbe4f3;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.7;
+}
+a{color:var(--blue)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+/* Navigation */
+.topbar{position:sticky;top:0;z-index:10;background:var(--card);border-bottom:1px solid var(--line)}
+.nav{max-width:960px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{font-weight:700;color:var(--blue-dark)}
+.navlinks{display:flex;gap:22px;flex-wrap:wrap}
+.navlinks a{font-size:14px;text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--blue)}
+
+/* Hero */
+.hero{background:var(--blue-dark);color:#fff;text-align:center;padding:96px 24px}
+.hero-inner{max-width:640px;margin:auto}
+.hero h1{font-size:clamp(40px,8vw,64px);line-height:1.1;margin:0 0 18px;font-weight:700}
+.hero p{font-size:18px;color:#dbeafe;margin:0 auto 32px;max-width:480px}
+
+/* Buttons */
+.btn{border:0;border-radius:10px;padding:13px 24px;background:var(--blue);color:#fff;font-weight:600;font-size:15px;transition:background .15s}
+.btn:hover{background:#1d4ed8}
+.btn.light{background:var(--blue-soft);color:var(--blue-dark)}
+.btn.light:hover{background:#bfdbfe}
+.hero .btn{background:#fff;color:var(--blue-dark)}
+.hero .btn:hover{background:var(--blue-soft)}
+
+/* Layout */
+main{max-width:800px;margin:auto;padding:0 24px 40px}
+.section{padding:64px 0 0;scroll-margin-top:60px}
+.section-head{margin-bottom:24px}
+h2{font-size:clamp(26px,5vw,34px);line-height:1.2;margin:0 0 8px;color:var(--blue-dark)}
+.lede{color:var(--muted);margin:0;max-width:60ch}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(22px,4vw,36px)}
+.letter{white-space:pre-line;max-width:65ch}
+.sign{margin-top:24px;font-weight:600;color:var(--blue-dark)}
+
+/* Grids */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.tile h3{font-size:18px;margin:0 0 6px;color:var(--blue-dark)}
+.tile p{font-size:15px;color:var(--muted);margin:0}
+
+.promise-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.promise-list li{padding-left:20px;position:relative}
+.promise-list li:before{content:"";position:absolute;left:0;top:.7em;width:8px;height:8px;border-radius:50%;background:var(--blue)}
+
+/* Song */
+.song-link{display:inline-block;font-weight:600}
+
+/* Secret letter */
+.secret{display:none;margin-top:20px}
+.secret.show{display:block}
+
+/* Final question */
+.final{background:var(--blue-dark);color:#fff;border-radius:14px;padding:clamp(32px,6vw,56px);text-align:center}
+.final h2{color:#fff;font-size:clamp(28px,6vw,42px)}
+.final p{color:#dbeafe;max-width:55ch;margin:0 auto}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.final .btn{background:#fff;color:var(--blue-dark)}
+.final .btn:hover{background:var(--blue-soft)}
+.final .btn.light{background:transparent;color:#fff;border:1px solid #93b4f5}
+.final .btn.light:hover{background:#ffffff1a}
+.final .btn.light{border:1px solid #93b4f5}
+.response{min-height:28px;margin-top:22px!important;font-weight:600;color:#fff!important}
+
+footer{text-align:center;padding:48px 16px;color:var(--muted);font-size:14px}
+
+
+/* Decorations */
+.hero{background:linear-gradient(160deg,#1e3a8a 0%,#2563eb 100%);position:relative;overflow:hidden}
+.hero-inner{position:relative;z-index:1}
+.deco{position:absolute;color:#fff;opacity:.18;pointer-events:none;user-select:none}
+.deco.d1{top:14%;left:9%;font-size:54px;animation:bob 6s ease-in-out infinite}
+.deco.d2{top:22%;right:11%;font-size:36px;animation:bob 7s ease-in-out infinite .8s}
+.deco.d3{bottom:16%;left:16%;font-size:30px;animation:bob 5.5s ease-in-out infinite 1.5s}
+.deco.d4{bottom:20%;right:8%;font-size:62px;animation:bob 8s ease-in-out infinite .4s}
+.deco.d5{top:50%;left:3%;font-size:26px;animation:bob 6.5s ease-in-out infinite 2s}
+.deco.d6{top:8%;right:34%;font-size:24px;animation:bob 7.5s ease-in-out infinite 1s}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.hero-heart{display:block;font-size:30px;margin:0 auto 18px;color:#bfdbfe}
+
+.section-head{text-align:center}
+.section-head .lede{margin:0 auto}
+.section-head h2:before{content:"\2661";display:block;font-size:20px;color:#60a5fa;margin-bottom:6px}
+.section+.section:before{content:"";display:block;width:60px;height:2px;background:#bfdbfe;border-radius:2px;margin:0 auto 56px}
+.section{padding-top:56px}
+
+.tile{border-top:3px solid #93c5fd}
+.tile .symbol{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--blue-soft);color:var(--blue);font-size:19px;margin-bottom:12px}
+.tile h3{margin-top:0}
+
+.card{box-shadow:0 8px 30px #2563eb14}
+.tile{box-shadow:0 4px 16px #2563eb10}
+.sign{text-align:right}
+
+.promise-list li{padding-left:28px}
+.promise-list li:before{content:"\2661";background:none;width:auto;height:auto;border-radius:0;top:0;color:var(--blue);font-size:17px}
+
+.final{background:linear-gradient(160deg,#1e3a8a 0%,#2563eb 100%);position:relative;overflow:hidden}
+.final > *{position:relative;z-index:1}
+.final:before,.final:after{position:absolute;color:#fff;opacity:.14;font-size:80px;pointer-events:none}
+.final:before{content:"\2661";top:14px;left:22px}
+.final:after{content:"\2727";bottom:10px;right:24px}
+
+.envelope-btn{display:block;margin:0 auto}
+footer:before{content:"\2661  \2661  \2661";display:block;color:#93c5fd;letter-spacing:6px;margin-bottom:10px}
+
+@keyframes floatdown{to{transform:translateY(110vh) rotate(420deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.deco{animation:none}}
+
+@media(max-width:700px){
+  .navlinks{display:none}
+  .grid{grid-template-columns:1fr 1fr}
+  .promise-list{grid-template-columns:1fr}
+  .hero{padding:72px 24px}
+}
+@media(max-width:480px){.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <nav class="nav" aria-label="Main">
+    <div class="brand">Malik &amp; Asher</div>
+    <div class="navlinks">
+      <a href="#letter">Letter</a>
+      <a href="#moments">Moments</a>
+      <a href="#adore">What I adore</a>
+      <a href="#promises">Promises</a>
+      <a href="#question">Question</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="deco d1">&#9825;</span><span class="deco d2">&#10023;</span><span class="deco d3">&#9729;</span>
+  <span class="deco d4">&#9825;</span><span class="deco d5">&#10047;</span><span class="deco d6">&#10023;</span>
+  <div class="hero-inner">
+    <span class="hero-heart">&#9825;</span>
+    <h1>For you, Asher.</h1>
+    <p>Some feelings are too good to keep to myself, so I made you a small place where I can tell you everything.</p>
+    <button class="btn" onclick="document.querySelector('#letter').scrollIntoView({behavior:'smooth'})">Read my letter</button>
+  </div>
+</section>
+
+<main>
+
+<section class="section" id="letter">
+  <div class="section-head">
+    <h2>A letter for you</h2>
+    <p class="lede">There are things I want you to know, even if I don't always find the perfect words to say them.</p>
+  </div>
+  <div class="card">
+    <div class="letter">Dear Asher,
+
+I know we haven't even known each other for a whole month yet. Maybe to some people, that sounds like such a short time. But to me, what matters isn't how long we've known each other; it's how genuinely we've been getting to know one another.
+
+I know we're still learning about each other's little habits, thoughts, fears, and everything in between. And I don't expect us to have everything figured out already. I just feel that what we have is worth taking a step forward for. I want us to keep discovering each other, this time with something more meaningful between us.
+
+Sometimes, my feelings for you get so overwhelming that I honestly don't know where to put them. I catch myself smiling for no reason, thinking about you, or feeling a little silly because I just miss you. I care about you more than I can properly explain, and I appreciate you in ways I hope you never have to question.
+
+I love the way you treat me. I love your sweetness, your silliness, your pretty little ways, and all the things that make you who you are. I adore how lovely you are, even in the moments when you probably don't see it yourself. Every little moment with you has become a favorite of mine, without exception.
+
+I want to be someone who makes room for every version of you. Not only the happy and confident one, but also the uncertain, tired, and scared one. I wish I could hold your fears gently and remind you that you don't have to carry everything alone.
+
+I understand that you have your own responsibilities, your own days, and a life beyond us. I would never want my affection to feel like another obligation. I don't need all of your time. I just hope we keep choosing to communicate, making an effort, and finding our way back to each other even on the busiest days.
+
+I don't want to rush the process of knowing you. I want to grow through it with you. I want more ordinary days, silly conversations, little updates, and memories that we'll look back on someday.
+
+And if you're willing, I'd love for this to become something we both get to call ours.
+
+With all the love I have,</div>
+    <div class="sign">Yours, Malik</div>
+  </div>
+</section>
+
+<section class="section" id="moments">
+  <div class="section-head">
+    <h2>Our little moments</h2>
+    <p class="lede">I don't need every moment to be extraordinary. Somehow, the little ones with you already mean so much.</p>
+  </div>
+  <div class="grid">
+    <article class="tile"><div class="symbol">&#9993;</div><h3>Our first conversations</h3><p>The beginning of something I didn't know I would cherish this much.</p></article>
+    <article class="tile"><div class="symbol">&#9786;</div><h3>When you make me smile</h3><p>Those random moments when you make an ordinary day feel softer.</p></article>
+    <article class="tile"><div class="symbol">&#10023;</div><h3>Everything yet to come</h3><p>So many stories we haven't made, and I already look forward to them.</p></article>
+  </div>
+</section>
+
+<section class="section" id="adore">
+  <div class="section-head">
+    <h2>Things I adore about you</h2>
+    <p class="lede">If I listed every reason, we'd be here all day. But here are a few that deserve their own space.</p>
+  </div>
+  <div class="grid">
+    <article class="tile"><div class="symbol">&#9825;</div><h3>Your heart</h3><p>The way you treat me with kindness makes me feel appreciated and cared for.</p></article>
+    <article class="tile"><div class="symbol">&#10023;</div><h3>Your pretty self</h3><p>You're so beautiful, cute, and effortlessly lovely. Yes, I'm going to keep saying it.</p></article>
+    <article class="tile"><div class="symbol">&#9729;</div><h3>Your little ways</h3><p>The small things you do, the way you talk, and all the details that make you you.</p></article>
+    <article class="tile"><div class="symbol">&#9825;</div><h3>Your presence</h3><p>Even a simple conversation with you can become the best part of my day.</p></article>
+    <article class="tile"><div class="symbol">&#10047;</div><h3>Your own world</h3><p>I admire that you have your own things going on, your dreams, and your responsibilities.</p></article>
+    <article class="tile"><div class="symbol">&#8734;</div><h3>All of you</h3><p>Not just the easy-to-love parts. I want to keep learning and appreciating all of you.</p></article>
+  </div>
+</section>
+
+<section class="section" id="promises">
+  <div class="section-head">
+    <h2>My promises to you</h2>
+    <p class="lede">I can't promise that every day will be perfect. But I can promise to keep showing up with care and intention.</p>
+  </div>
+  <div class="card">
+    <ul class="promise-list">
+      <li>I'll listen to you, even when what you need is simply someone to stay.</li>
+      <li>I'll respect your time, your responsibilities, and the life you have outside of us.</li>
+      <li>I'll do my best to keep our communication honest, gentle, and consistent.</li>
+      <li>I'll never expect you to hide your fears or pretend to be okay around me.</li>
+      <li>I'll keep learning how to understand you instead of assuming I already know everything.</li>
+      <li>I'll celebrate your wins, support your growth, and be proud of you along the way.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="fears">
+  <div class="section-head">
+    <h2>For the days you feel afraid</h2>
+    <p class="lede">You don't have to be fearless to be loved. You can be uncertain, take your time, and still be worthy of something gentle.</p>
+  </div>
+  <div class="card">
+    <div class="letter">If there are days when your thoughts get too loud, I hope you remember that you don't have to explain every little thing perfectly to me.
+
+I don't want to force your fears away or tell you that you shouldn't feel them. I just want to understand them, sit beside you through them, and give you the reassurance you need when I can.
+
+You are allowed to take your time. You are allowed to have difficult days. You are allowed to be a work in progress.
+
+I don't need a perfect version of you, Asher. I want the real you. And I hope, little by little, I can become someone you feel safe being real with.</div>
+    <div class="sign">You can take your time. I'm here.</div>
+  </div>
+</section>
+
+<!-- Song section: hidden until a link is set in SONG_URL (see script at the bottom) -->
+<section class="section" id="song" hidden>
+  <div class="section-head">
+    <h2>A song for you</h2>
+    <p class="lede">Every love story deserves a soundtrack. This one reminds me of you.</p>
+  </div>
+  <div class="card">
+    <a id="songLink" class="song-link" target="_blank" rel="noopener noreferrer">Listen to our song</a>
+  </div>
+</section>
+
+<section class="section" id="secret">
+  <div class="section-head">
+    <h2>One more thing</h2>
+    <p class="lede">There's one more message I want you to read. Open it when you're ready.</p>
+  </div>
+  <button class="btn light" id="secretBtn" onclick="revealSecret()" aria-expanded="false" aria-controls="secretLetter">Open the message</button>
+  <div class="card secret" id="secretLetter">
+    <div class="letter">Psst, Asher…
+
+I hope you know that you're not just someone I happen to talk to. You've become someone I genuinely look forward to, someone I admire, and someone I feel incredibly lucky to know.
+
+I might tease you, compliment you a hundred times, or act a little ridiculous because of how much I like you. But underneath all of that is something sincere: I really, really care about you.
+
+This is me, Malik, choosing to be brave enough to tell you.</div>
+  </div>
+</section>
+
+<section class="section" id="question">
+  <div class="final">
+    <h2>Will you be my Asher, officially?</h2>
+    <p>I want to keep knowing you, caring for you, and building something meaningful together. No pressure to have every answer today. I just want to know if you'd like to take this next step with me.</p>
+    <div class="actions">
+      <button class="btn" onclick="choose('yes1')">Yes, obviously</button>
+      <button class="btn light" onclick="choose('yes2')">Yes, but you're buying me snacks</button>
+    </div>
+    <p class="response" id="answer" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+</main>
+
+<footer>Made with love by Malik, for Asher.</footer>
+
+<script>
+// To add a song, paste a Spotify / YouTube link between the quotes below.
+// Leave it empty to keep the song section hidden.
+const SONG_URL = "";
+
+(function setupSong(){
+  if(!SONG_URL) return;
+  try{
+    const url = new URL(SONG_URL);
+    if(!['http:','https:'].includes(url.protocol)) return;
+    document.getElementById('songLink').href = url.href;
+    document.getElementById('song').hidden = false;
+  }catch(e){}
+})();
+
+function revealSecret(){
+  const el = document.getElementById('secretLetter');
+  const btn = document.getElementById('secretBtn');
+  el.classList.add('show');
+  btn.setAttribute('aria-expanded','true');
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+const REPLIES = {
+  yes1:"Yes, obviously. I was only pretending to think about it for dramatic effect. You officially have to put up with me now.",
+  yes2:"Yes, but only because you wrote such a nice letter. Fine, I'm yours, but you owe me snacks and one dumb joke a day."
+};
+
+function choose(key){
+  document.getElementById('answer').textContent = REPLIES[key];
+  hearts();
+}
+
+function hearts(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const icons = ['\u2661','\u2665','\u2727','\u2601'];
+  for(let i=0;i<36;i++){
+    const h = document.createElement('span');
+    h.textContent = icons[Math.floor(Math.random()*icons.length)];
+    h.setAttribute('aria-hidden','true');
+    h.style.cssText = 'position:fixed;top:-30px;left:'+(Math.random()*100)+'vw;z-index:99;pointer-events:none;'
+      +'color:'+['#2563eb','#60a5fa','#93c5fd','#1e3a8a'][Math.floor(Math.random()*4)]+';'
+      +'font-size:'+(16+Math.random()*18)+'px;'
+      +'animation:floatdown '+(2.8+Math.random()*2)+'s linear '+(Math.random()*0.8)+'s forwards;';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  }
+}
+</script>
+</body>
+</html>
